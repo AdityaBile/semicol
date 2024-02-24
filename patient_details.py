@@ -186,19 +186,19 @@ text_data_before_table.append([initial_diagnosis[order_index],final_diagnosis[or
 #pdf = SimpleDocTemplate("aa.pdf", pagesize=letter,topMargin=150)   ## Pass as argument
 pdf = SimpleDocTemplate(sys.argv[4], pagesize=letter,topMargin=150)   ## Pass as argument
 
-table_text = Table(text_data_before_table,colWidths=[80,300])
+# Aligned text_data_before_table
+table_text = Table(text_data_before_table, colWidths=[180, 200])
 
 table_style_text = TableStyle([
-   
-    ('ALIGN', (0, 0), (-1, -1), 'CENTER'),
-    ('FONTNAME', (0, 0), (-1, 0), 'Helvetica'),
-    ('FONTSIZE', (0, 0), (-1, 0), 8),
-    ('BOTTOMPADDING', (0, 0), (-1, 0), 8),
-    ('TEXTCOLOR', (0, 1), (-1, -1), colors.black),
-    ('ALIGN', (0, 1), (-1, -1), 'CENTER'),
-    ('FONTNAME', (0, 1), (-1, -1), 'Helvetica'),
-    ('FONTSIZE', (0, 1), (-1, -1), 8),
-    ('BOTTOMPADDING', (0, 1), (-1, -1), 8),
+    ('VALIGN', (0, 0), (-1, -1), 'MIDDLE'),
+    ('FONTNAME', (0, 0), (-1, -1), 'Helvetica'),
+    ('FONTSIZE', (0, 0), (-1, -1), 8),
+    ('LEFTPADDING', (0, 0), (-1, -1), 5),
+    ('RIGHTPADDING', (0, 0), (-1, -1), 5),
+    ('TOPPADDING', (0, 0), (-1, -1), 2),
+    ('BOTTOMPADDING', (0, 0), (-1, -1), 6.7),  # Increase bottom padding to increase space between rows
+    ('ALIGN', (0, 0), (0, -1), 'LEFT'),
+    ('ALIGN', (1, 0), (1, -1), 'LEFT'),
 ])
 
 table_text.setStyle(table_style_text)
@@ -301,5 +301,3 @@ pdf_table.append(para5)
 
 
 pdf.build(pdf_table,onFirstPage=header_content,onLaterPages=header_content)
-
-
