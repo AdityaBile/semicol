@@ -125,7 +125,7 @@ with open(sys.argv[3],'r') as score_file:     ## Pass as argument
 
 
 from reportlab.graphics.shapes import Drawing, Line
-header_image_path = "semicol_image.png"
+header_image_path = "semicol_image-removebg-preview.png"
 
 def header_content(canvas,doc):
     canvas.saveState()
